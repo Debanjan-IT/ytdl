@@ -19,8 +19,11 @@ const init = async () => {
             title: 'API Documentation',
             version: Pack.version,
         },
-        basePath: '',
-        documentationPath: '/documentation',
+        grouping: 'tags',
+        basePath: '/api/',
+        documentationPath: '/api/documentation',
+        jsonPath: '/api/swagger.json',
+        swaggerUIPath: '/api/swagger/ui',
         schemes: ['https', 'http'],
     };
 
