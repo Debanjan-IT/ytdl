@@ -10,6 +10,7 @@ const routes = require('./routes')
 const init = async () => {
     const server = Hapi.server({
         port: process.env.PORT || 3006,
+        host: process.env.HOST || 'localhost',
         routes: {
           cors: true,
         },
@@ -19,8 +20,8 @@ const init = async () => {
             title: 'API Documentation',
             version: Pack.version,
         },
-        basePath: '/api/',
-        documentationPath: '/api/documentation',
+        basePath: '',
+        documentationPath: '/documentation',
         schemes: ['https', 'http'],
     };
 
