@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^7.0.0",
+    "@hapi/vision": "^7.0.0",
+    "dotenv": "^16.0.1",
+    "hapi-swagger": "^14.5.5",
+    "joi": "^17.6.0",
+    "ytdl-core": "^4.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "test",
+  "version": "1.0.0",
+  "main": "server.js",
+  "keywords": [],
+  "author": "Debanjan Dasgupta",
+  "license": "ISC",
+  "description": ""
+}
