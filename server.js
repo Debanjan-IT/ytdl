@@ -1,10 +1,6 @@
 'use strict';
 require('dotenv/config')
 const Hapi = require('@hapi/hapi');
-const Inert = require('@hapi/inert');
-const Vision = require('@hapi/vision');
-const HapiSwagger = require('hapi-swagger');
-const Pack = require('./package');
 const routes = require('./routes')
 
 const init = async () => {
@@ -14,27 +10,6 @@ const init = async () => {
           cors: true,
         },
     });
-    const swaggerOptions = {
-        info: {
-            title: 'API Documentation',
-            version: Pack.version,
-        },
-        grouping: 'tags',
-        basePath: '/api/',
-        documentationPath: '/api/documentation',
-        jsonPath: '/api/swagger.json',
-        swaggerUIPath: '/api/swagger/ui',
-        schemes: ['https', 'http'],
-    };
-
-    await server.register([
-        Inert,
-        Vision,
-        {
-            plugin: HapiSwagger,
-            options: swaggerOptions
-        }
-    ]);
     await server.register(routes, {
         routes: {
             prefix: "/api"
