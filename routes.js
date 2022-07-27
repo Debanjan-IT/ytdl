@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 const tags = ["api", "data"];
-const controller = require('../controller')
+const controller = require('./controller')
 
 module.exports = {
     name: "data",
@@ -20,6 +20,17 @@ module.exports = {
                             yt_url: Joi.string().required(),
                             type: Joi.string().valid('audio', 'video', 'all').default('all').allow(null)
                         })
+                    },
+                },
+            }, {
+                method: "GET",
+                path: "/",
+                config: {
+                    auth: false,
+                    description: "get data",
+                    tags,
+                    handler: (req, res) => {
+                        return {message: "Success"}
                     },
                 },
             }
