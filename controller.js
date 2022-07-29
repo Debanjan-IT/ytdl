@@ -4,14 +4,14 @@ const getData = async(req, res) => {
         const {yt_url, type} = req.query
         const info = await ytdl.getInfo(yt_url)
 
-        const maudio = info.formats.filter(e => e.mimeType.includes('audio') && e.hasAudio).map(e => {
+        const maudio = info.formats.filter(e => e.mimeType.includes('audio')).map(e => {
             return {
                 audio_quality: `${e.audioBitrate}kbps`,
                 link: e.url
             }
         })
 
-        const mvideo = info.formats.filter(e => e.mimeType.includes('video') && e.hasAudio).map(e => {
+        const mvideo = info.formats.filter(e => e.mimeType.includes('video')).map(e => {
             return {
                 video_quality: e.qualityLabel,
                 link: e.url
